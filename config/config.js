@@ -23,15 +23,15 @@ if (process.env.INSIGHT_NETWORK === 'livenet') {
   env = 'livenet';
   db = home;
   port = '3000';
-  b_port = '8332';
-  p2p_port = '8333';
+  b_port = '51737';
+  p2p_port = '51736';
 }
 else {
   env = 'testnet';
   db = home + '/testnet';
   port = '3001';
-  b_port = '18332';
-  p2p_port = '18333';
+  b_port = '51996';
+  p2p_port = '51997';
 }
 
 
@@ -56,9 +56,9 @@ var isLinux = /^linux/.test(process.platform);
 if (!dataDir) {
   if (isWin) dataDir = '%APPDATA%\\Bitcoin\\';
   if (isMac) dataDir = process.env.HOME + '/Library/Application Support/Bitcoin/';
-  if (isLinux) dataDir = process.env.HOME + '/.bitcoin/';
+  if (isLinux) dataDir = process.env.HOME + '/.sdcoin/';
 }
-dataDir += network === 'testnet' ? 'testnet3' : '';
+dataDir += network === 'testnet' ? 'testnet' : '';
 
 var safeConfirmations = process.env.INSIGHT_SAFE_CONFIRMATIONS || 6;
 var ignoreCache      = process.env.INSIGHT_IGNORE_CACHE || 0;
@@ -110,7 +110,7 @@ bitcoindConf.pass?'Yes(hidden)':'No',
 bitcoindConf.protocol,
 bitcoindConf.host,
 bitcoindConf.port,
-bitcoindConf.p2pPort,
+bitcoindConf.p2p_port,
 dataDir+(network==='testnet'?'*':''),
 (network==='testnet'?'* (/testnet3 is added automatically)':'')
 );
