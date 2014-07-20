@@ -16,7 +16,6 @@ Status.prototype.getInfo = function(next) {
     function (cb) {
       rpc.getInfo(function(err, info){
         if (err) return cb(err);
-
         that.info = info.result;
         return cb();
       });
@@ -32,8 +31,7 @@ Status.prototype.getDifficulty = function(next) {
     function (cb) {
       rpc.getDifficulty(function(err, df){
         if (err) return cb(err);
-
-        that.difficulty = df.result;
+        that.difficulty = info.result;
         return cb();
       });
     }
@@ -99,6 +97,21 @@ Status.prototype.getLastBlockHash = function(next) {
           return next();
         }
     );
+  });
+};
+
+Status.prototype.getMiningInfo = function(next) {
+  var that = this;
+  async.series([
+    function (cb) {
+      rpc.getMiningInfo(function(err, info){
+        if (err) return cb(err);
+        that.info = info.result;
+        return cb();
+      });
+    },
+  ], function (err) {
+    return next(err);
   });
 };
 

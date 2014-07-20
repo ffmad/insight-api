@@ -40,6 +40,9 @@ exports.show = function(req, res) {
       case 'getLastBlockHash':
         statusObject.getLastBlockHash(returnJsonp);
         break;
+      case 'getMiningInfo':
+        statusObject.getMiningInfo(returnJsonp);
+        break;
       default:
         res.status(400).send('Bad Request');
     }
