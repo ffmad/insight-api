@@ -54,9 +54,9 @@ var isWin = /^win/.test(process.platform);
 var isMac = /^darwin/.test(process.platform);
 var isLinux = /^linux/.test(process.platform);
 if (!dataDir) {
-  if (isWin) dataDir = '%APPDATA%\\Bitcoin\\';
-  if (isMac) dataDir = process.env.HOME + '/Library/Application Support/Bitcoin/';
-  if (isLinux) dataDir = process.env.HOME + '/.sdcoin/';
+  if (isWin) dataDir = '%APPDATA%\\Shadowcoin\\';
+  if (isMac) dataDir = process.env.HOME + '/Library/Application Support/Shadowcoin/';
+  if (isLinux) dataDir = process.env.HOME + '/.shadowcoin/';
 }
 dataDir += network === 'testnet' ? 'testnet' : '';
 
