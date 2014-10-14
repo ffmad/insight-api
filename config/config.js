@@ -23,15 +23,15 @@ if (process.env.INSIGHT_NETWORK === 'livenet') {
   env = 'livenet';
   db = home;
   port = '3000';
-  b_port = '51736';
-  p2p_port = '51737';
+  b_port = '31115';
+  p2p_port = '31114';
 }
 else {
   env = 'testnet';
   db = home + '/testnet';
   port = '3001';
-  b_port = '51996';
-  p2p_port = '51997';
+  b_port = '41115';
+  p2p_port = '41114';
 }
 
 
@@ -54,9 +54,9 @@ var isWin = /^win/.test(process.platform);
 var isMac = /^darwin/.test(process.platform);
 var isLinux = /^linux/.test(process.platform);
 if (!dataDir) {
-  if (isWin) dataDir = '%APPDATA%\\Shadowcoin\\';
-  if (isMac) dataDir = process.env.HOME + '/Library/Application Support/Shadowcoin/';
-  if (isLinux) dataDir = process.env.HOME + '/.shadowcoin/';
+  if (isWin) dataDir = '%APPDATA%\\Shade\\';
+  if (isMac) dataDir = process.env.HOME + '/Library/Application Support/Shade/';
+  if (isLinux) dataDir = process.env.HOME + '/.Shade/';
 }
 dataDir += network === 'testnet' ? 'testnet' : '';
 
